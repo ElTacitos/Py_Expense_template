@@ -1,15 +1,7 @@
 from user import get_users
 from expense import get_expense
 
-remboursement_questions1 = [
-    {
-        "type": "confirm",
-        "name": "remboursement",
-        "message": "Do you want to make a remboursement ?",
-    }
-]
-
-# WIP
+#WIP
 def equilibrate_debts(debts):
     users_status = {user: 0 for user in get_users()}
     # iterate over each user of debts
@@ -19,7 +11,9 @@ def equilibrate_debts(debts):
         for user2 in debt:
             users_status[user] -= debt[user2]
             users_status[user2] += debt[user2]
-    print(users_status)
+
+    sorted_users_status = sorted(users_status.items(), key=lambda x: x[1])
+    print(sorted_users_status)
 
 def compute_status():
     users = get_users()
