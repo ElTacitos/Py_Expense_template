@@ -7,6 +7,10 @@ user_questions = [
     },
 ]
 
+def get_users():
+    f = open("users.csv", "r")
+    users = [user.replace("\n", "") for user in f.readlines()]
+    return users
 def add_user():
     infos = prompt(user_questions)
     # This function should create a new user, asking for its name
